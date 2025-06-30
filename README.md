@@ -89,7 +89,7 @@ No modules.
 
 // add route to existing route table "priv_rt"
 module "route" {
-  source             = "mkomlaetou/vpc/aws"
+  source             = "mkomlaetou/routetable/aws"
 
   existing_rt_table_id = module.vpc-01.vpc_details["priv_rt"]
   routes               = local.routes 
@@ -108,8 +108,8 @@ locals {
 
 // add new routing table
 module "route_table" {
-  source             = "mkomlaetou/vpc/aws"
-  
+  source             = "mkomlaetou/routetable/aws"
+
   create_rt_table      = true
   rt_table_name        = "priv-rt-table"
   routes               = var.routes
